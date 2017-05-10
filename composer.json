@@ -5,14 +5,9 @@
   "type": "library",
   "homepage": "https://github.com/PGWireless/php-aop",
   "require": {
-    "php": ">=7.0",
-    "php-helper": "dev-master"
+    "php": ">=7.0"
   },
   "repositories": {
-    "php-helper": {
-      "type": "vcs",
-      "url": "http://182.150.28.13:3000/PGWireless/php-helper.git"
-    }
   },
   "autoload": {
     "psr-4": {

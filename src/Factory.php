@@ -14,25 +14,28 @@ class Factory
 {
     /**
      * 获取协程与非协程适配对象
+     * @param $object
+     * @param callable | null $beforeCallable
+     * @param callable | null $afterCallable
+     * @param callable | null $bothCallable
      *
      * @param \stdClass $object
      * @return Wrapper | \stdClass
      */
-    public static function getAdapterObject($object)
+    public static function getAdapterObject($object, $beforeCallable = null, $afterCallable = null, $bothCallable = null)
     {
         $wrapperObject = new Wrapper($object);
-        $wrapperObject->registerOnAfter(function ($method, $arguments, $result) {
-            $data['method'] = $method;
-            $data['arguments'] = $arguments;
+        if (is_callable($beforeCallable)) {
+            $wrapperObject->registerOnBefore($beforeCallable);
+        }
 
-            if (CommonHelper::getAppType() != 'msf' && $result instanceof \Generator) {
-                $data['result'] = $result->getReturn();
-                return $data;
-            }
+        if (is_callable($afterCallable)) {
+            $wrapperObject->registerOnAfter($afterCallable);
+        }
 
-            $data['result'] = $result;
-            return $data;
-        });
+        if (is_callable($bothCallable)) {
+            $wrapperObject->registerOnBoth($bothCallable);
+        }
 
         return $wrapperObject;
     }
