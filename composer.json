@@ -1,0 +1,29 @@
+{
+  "name": "PGWireless/php-aop",
+  "description": "PGWireless PHP AOP",
+  "license": "BSD-3-Clause",
+  "type": "library",
+  "homepage": "https://github.com/PGWireless/php-aop",
+  "require": {
+    "php": ">=7.0",
+    "php-helper": "dev-master"
+  },
+  "repositories": {
+    "php-helper": {
+      "type": "vcs",
+      "url": "http://182.150.28.13:3000/PGWireless/php-helper.git"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "PG\\AOP\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+  },
+  "config": {
+    "secure-http": false
+  }
+}
