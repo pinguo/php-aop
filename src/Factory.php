@@ -49,7 +49,7 @@ class Factory
      */
     public static function createAdapterObject($object)
     {
-        $wrapperObject = Factory::create($object, null, function($method, $arguments, $result) {
+        $wrapperObject = self::create($object, null, function($method, $arguments, $result) {
             $data['method']    = $method;
             $data['arguments'] = $arguments;
 
