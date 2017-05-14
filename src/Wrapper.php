@@ -50,16 +50,7 @@ class Wrapper
             return $this->data['result'];
         }
 
-        if (strtolower($this->data['method']) == 'getcontext' &&
-            !method_exists($this->instance, 'getContext') &&
-            property_exists($this->instance, 'context') &&
-            class_exists('\PG\MSF\Helpers\Context', false) &&
-            $this->instance->context instanceof \PG\MSF\Helpers\Context) {
-            $this->data['result'] = $this->instance->context;
-        } else {
-            $this->data['result'] = call_user_func_array([$this->instance, $this->data['method']],
-                $this->data['arguments']);
-        }
+        $this->data['result'] = call_user_func_array([$this->instance, $this->data['method']], $this->data['arguments']);
 
         foreach ($this->onAfterFunc as $func) {
             $this->data = call_user_func_array($func, $this->data);
