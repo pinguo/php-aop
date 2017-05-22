@@ -7,8 +7,15 @@
  */
 namespace PG\AOP;
 
+use PG\MSF\Helpers\Context;
+
 trait MI
 {
+    /**
+     * @var Context
+     */
+    public $context;
+
     /**
      * get Context
      * @return mixed
