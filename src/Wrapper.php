@@ -37,26 +37,26 @@ class Wrapper
 
     public function __call($method, $arguments)
     {
-        $this->data['method'] = $method;
-        $this->data['arguments'] = $arguments;
-        unset($this->data['result']);
+        $data['method'] = $method;
+        $data['arguments'] = $arguments;
+        unset($data['result']);
 
         foreach ($this->onBeforeFunc as $func) {
-            $this->data = call_user_func_array($func, $this->data);
+            $data = call_user_func_array($func, $data);
         }
 
         //支持提前返回结果 不需要继续调用
-        if (isset($this->data['result'])) {
-            return $this->data['result'];
+        if (isset($data['result'])) {
+            return $data['result'];
         }
 
-        $this->data['result'] = call_user_func_array([$this->instance, $this->data['method']], $this->data['arguments']);
+        $data['result'] = call_user_func_array([$this->instance, $data['method']], $data['arguments']);
 
         foreach ($this->onAfterFunc as $func) {
-            $this->data = call_user_func_array($func, $this->data);
+            $data = call_user_func_array($func, $data);
         }
 
-        return $this->data['result'];
+        return $data['result'];
     }
 
     public function registerOnBefore(callable $callback)
