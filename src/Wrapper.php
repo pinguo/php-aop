@@ -16,8 +16,6 @@ class Wrapper
     private $onBeforeFunc = [];
     private $onAfterFunc = [];
 
-    private $data = [];
-
     public function __construct($instance, $isClone = false)
     {
         $isClone && ($instance = clone $instance);
@@ -37,7 +35,7 @@ class Wrapper
 
     public function __call($method, $arguments)
     {
-        $data['method'] = $method;
+        $data['method']    = $method;
         $data['arguments'] = $arguments;
         unset($data['result']);
 
@@ -72,6 +70,14 @@ class Wrapper
     public function registerOnBoth(callable $callback)
     {
         $this->onBeforeFunc[] = $callback;
-        $this->onAfterFunc[] = $callback;
+        $this->onAfterFunc[]  = $callback;
+    }
+
+    public function destroy()
+    {
+        $this->instance     = null;
+        $this->attributes   = [];
+        $this->onBeforeFunc = [];
+        $this->onAfterFunc  = [];
     }
 }
