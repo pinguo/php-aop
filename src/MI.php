@@ -8,6 +8,8 @@
 namespace PG\AOP;
 
 use PG\MSF\Helpers\Context;
+use PG\MSF\Controllers\Controller;
+use PG\MSF\Base\Core;
 
 trait MI
 {
@@ -17,12 +19,26 @@ trait MI
     public $context;
 
     /**
-     * get Context
-     * @return mixed
+     * @var Controller|Core
+     */
+    public $parent;
+
+    /**
+     * get context
+     * @return Context|NULL
      */
     public function getContext()
     {
         return $this->context ?? null;
+    }
+
+    /**
+     * get parent
+     * @return Controller|Core|null
+     */
+    public function getParent()
+    {
+        return $this->parent ?? null;
     }
 
     /**
