@@ -40,7 +40,7 @@ class Wrapper
         unset($data['result']);
 
         foreach ($this->onBeforeFunc as $func) {
-            $data = call_user_func_array($func, $data);
+            $data = $func(...$data);
         }
 
         //支持提前返回结果 不需要继续调用
@@ -48,10 +48,10 @@ class Wrapper
             return $data['result'];
         }
 
-        $data['result'] = call_user_func_array([$this->instance, $data['method']], $data['arguments']);
+        $data['result'] = $this->instance->{$data['method']}(...$data['arguments']);
 
         foreach ($this->onAfterFunc as $func) {
-            $data = call_user_func_array($func, $data);
+            $data = $func(...$data);
         }
 
         return $data['result'];
