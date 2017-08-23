@@ -1,9 +1,9 @@
 <?php
 /**
- * @desc: AOP类工厂
- * @author: leandre <niulingyun@camera360.com>
- * @date: 2017/3/28
- * @copyright All rights reserved.
+ * AOP类工厂
+ *
+ * @author camera360_server@camera360.com
+ * @copyright Chengdu pinguo Technology Co.,Ltd.
  */
 
 namespace PG\AOP;
