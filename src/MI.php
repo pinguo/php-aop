@@ -48,11 +48,11 @@ trait MI
      * 通过对象池生成对象
      *
      * @param array $args
-     * @return \stdClass
+     * @return \stdClass|mixed
      */
     public function getObject(...$args)
     {
-        return $this->context->getObjectPool()->setCurrentObjParent($this)->get(...$args);
+        return $this->context->getObjectPool()->get(...$args);
     }
 
     /**
