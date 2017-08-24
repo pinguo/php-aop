@@ -48,7 +48,7 @@ trait MI
      * 通过对象池生成对象
      *
      * @param array $args
-     * @return Pool|Wrapper
+     * @return \stdClass
      */
     public function getObject(...$args)
     {
