@@ -19,7 +19,7 @@ class Wrapper
     public function __construct($instance, $isClone = false)
     {
         $isClone && ($instance = clone $instance);
-        $instance->wrapper = $this;
+        $instance->__wrapper = $this;
         $this->instance = $instance;
     }
 
