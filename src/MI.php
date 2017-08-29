@@ -9,7 +9,7 @@ namespace PG\AOP;
 
 use PG\MSF\Helpers\Context;
 use PG\MSF\Controllers\Controller;
-use PG\MSF\Memory\Pool;
+use PG\MSF\Base\Pool;
 use PG\MSF\Base\Core;
 use PG\MSF\Marco;
 
