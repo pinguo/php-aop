@@ -1,7 +1,7 @@
 {
   "name": "pinguo/php-aop",
   "description": "pinguo PHP AOP",
-  "license": "BSD-3-Clause",
+  "license": "GPL",
   "type": "library",
   "homepage": "https://github.com/pinguo/php-aop",
   "require": {
