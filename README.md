@@ -13,6 +13,6 @@
 
 ## License
 
-GNU General Public License, version 2 see [http://www.apache.org/licenses/LICENSE-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)
+GNU General Public License, version 2 see [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)
 
 
